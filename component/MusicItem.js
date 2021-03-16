@@ -7,14 +7,18 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import DetailScreen from "../screens/DetailScreen";
+
+//import { functiontoNavigate } from "./Music";
+
 const { width, height } = Dimensions.get("window");
-const MusicItem = (props, { navigation }) => {
-  // const navigateToDetailScreen = useCallback(() => {
-  //   navigation.navigate("MusicDetails", { item });
-  // }, [item]);
+
+const MusicItem = (props, { item }) => {
+  const navigatetoDetail = useCallback(() => {
+    props.functiontoNavigate();
+  }, [item]);
+
   return (
-    <TouchableOpacity onPress={() => props.navigation.navigate("MusicDetails")}>
+    <TouchableOpacity onPress={navigatetoDetail}>
       <View style={styles.cardView}>
         <View style={styles.imgContainer}>
           <Image

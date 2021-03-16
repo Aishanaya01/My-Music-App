@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import {
   Alert,
   FlatList,
@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   Button,
 } from "react-native";
-import { MusicData } from "../apis/MusicData";
+import { MusicData } from "../Apis/MusicData";
 import MusicItem from "./MusicItem";
 const Music = ({ props, navigation }) => {
   const [music, setMusic] = useState([]);
@@ -23,13 +23,21 @@ const Music = ({ props, navigation }) => {
       Alert.alert("Error", "Invalid Search:" + error);
     }
   };
+
+  const functiontoNavigate = () => {
+    console.log("hello", music.results);
+    navigation.navigate("MusicDetails", {
+      param: music.results,
+    });
+  };
+
   const render = useMemo(
     () => ({ item }) => {
-      return <MusicItem item={item} navigation={navigation} />;
+      return <MusicItem item={item} functiontoNavigate={functiontoNavigate} />;
     },
     []
   );
-  const keyExtractor = (item, index) => index.toString();
+  const keyExtractor = (item, index) => index.key; //key mainly a uniuqe id of the api should be used.
   return loading ? (
     <SafeAreaView>
       <ActivityIndicator
