@@ -1,21 +1,24 @@
 import React from "react";
-import { SafeAreaView, View, Text, Button, StyleSheet } from "react-native";
+import { SafeAreaView, Text, Button, StyleSheet, Image } from "react-native";
 
-function DetailScreen({ route, navigation, item }) {
-  //console.warn(route);
+function DetailScreen({ route, navigation, key }) {
+  //console.warn(route.params.key.artistId);
+  //console.warn(route.params.param);
   const { param } = route.params;
   return (
-    <View style={styles.itemInfo}>
-      <Text style={styles.name}>Artist Name</Text>
-      <Text style={styles.detail}> {param.item.artistName}</Text>
-      <Text style={styles.name}>Collection Name</Text>
-      <Text style={styles.detail}>{param.item.trackName}</Text>
+    <SafeAreaView style={styles.itemInfo}>
+      <Image style={styles.imageStyle} source={{ uri: param.artworkUrl100 }} />
       <Text style={styles.name}>Tack Name</Text>
-      <Text style={styles.detail}>{param.item.trackName}</Text>
+      <Text style={styles.detail}> {param.trackName} </Text>
+      <Text style={styles.name}>Artist Name</Text>
+      <Text style={styles.detail}> {param.artistName} </Text>
+      <Text style={styles.name}>Collection Name</Text>
+      <Text style={styles.detail}> {param.primaryGenreName} </Text>
       <Text style={styles.name}>Release Date</Text>
-      <Text style={styles.detail}>{param.item.trackName}</Text>
+      <Text style={styles.detail}> {param.releaseDate} </Text>
+
       <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
@@ -32,13 +35,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   detail: {
-    color: "#696969",
+    color: "black",
     fontSize: 18,
     marginBottom: 15,
   },
+  imageStyle: {
+    width: 250,
+    height: 250,
+    borderRadius: 20,
+  },
 });
 export default DetailScreen;
-/*<Text style={styles.name}>{props.trackname}</Text>
-    //   <Text style={styles.artistname}>{props.trackname}</Text>
-    //   <Text style={styles.collname}>{props.trackname}</Text>
-    </View>*/
