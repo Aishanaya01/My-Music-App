@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const { width, height } = Dimensions.get("window");
+/*const { width, height } = Dimensions.get("window");*/
 
 const MusicItem = (props, { item }) => {
   const navigatetoDetail = useCallback(() => {
@@ -34,13 +34,13 @@ const MusicItem = (props, { item }) => {
   );
 };
 const styles = StyleSheet.create({
-  cardView: {
+  /*cardView: {*/
     flex: 1,
-    width: Dimensions.get("window").width,
-    flexDirection: "row",
-    paddingHorizontal: 12,
-    borderStyle: "solid",
-    backgroundColor: "#FAFFFA",
+    /*width: Dimensions.get("window").width,*/
+    /*flexDirection: "row",*/
+    /*paddingHorizontal: 12,*/
+    /*borderStyle: "solid",*/
+    /*backgroundColor: "#FAFFFA",*/
     margin: width * 0.04,
     borderRadius: width * 0.05,
     shadowColor: "black",
@@ -48,15 +48,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 3,
   },
-  imgContainer: {
+  /*imgContainer: {
     flex: 0,
     width: 110,
     height: 110,
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 20,
-  },
-  imageStyle: {
+  },*/
+  /*imageStyle: {
     width: 100,
     height: 100,
     borderRadius: 50,
@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 15,
-  },
-  name: {
+  },*/
+  /*name: {
     color: "black",
     fontSize: 20,
     fontWeight: "bold",
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   collname: {
     fontSize: 16,
     color: "blue",
-  },
-});
+  },*/
+);
 export default MusicItem;
 

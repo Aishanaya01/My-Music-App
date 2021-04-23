@@ -20,7 +20,7 @@ const Music = ({ props, navigation }) => {
       return setMusic(response.data), setLoading(false);
     } catch (error) {
       console.warn(error);
-      Alert.alert("Error", "Invalid Search:" + " " + error);
+      Alert.alert("Error", "wrong Search:" + " " + error);
     }
   };
   const functiontoNavigate = (item) => {
@@ -59,7 +59,7 @@ const Music = ({ props, navigation }) => {
         keyExtractor={keyExtractor}
         renderItem={render}
         refreshing={loading}
-        onRefresh={getMusicFromAPI}
+        
       />
     </SafeAreaView>
   );
